@@ -5,7 +5,7 @@ import { NestjsQueryTypeOrmModule } from '@nestjs-query/query-typeorm';
 
 import { TemplateService } from './template.service';
 import { CreateAdminInput, UpdateAdminInput } from './admin.input';
-import { AdminDTO } from './admin.dto';
+import { TemplateDTO } from './template.dto';
 
 @Module({
   imports: [

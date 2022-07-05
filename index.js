@@ -1,4 +1,4 @@
-const { camelCase, paramCase, pascalCase } = require("change-case");
+const { camelCase, paramCase, pascalCase, snakeCase } = require("change-case");
 const fs = require("fs");
 const pluralize = require("pluralize");
 
@@ -69,7 +69,7 @@ const codegen = () => {
       function (err, data) {
         if (err) throw err;
         data = data.replace(/Template/g, pascalCase(fileName));
-        data = data.replace(/templates/g, pluralize(camelCase(fileName)));
+        data = data.replace(/templates/g, pluralize(snakeCase(fileName)));
         fs.writeFileSync(
           `${modulePath}/${paramCase(fileName)}.entity.ts`,
           data,

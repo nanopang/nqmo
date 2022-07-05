@@ -2,7 +2,6 @@ import { DEFAULT_QUERY_OPTIONS } from '@constants/gql.constant';
 import { TemplateEntity } from '@entities';
 import { QueryOptions } from '@nestjs-query/query-graphql';
 import { ObjectType } from '@nestjs/graphql';
-import { FilterableField } from '@nestjs-query/query-graphql';
 
 @ObjectType('Template')
 @QueryOptions({ ...DEFAULT_QUERY_OPTIONS })
