@@ -1,6 +1,6 @@
 {
-  "name": "@nanopang/nqmo-codegen",
-  "version": "1.0.91",
+  "name": "@nanopang/nqmo",
+  "version": "1",
   "description": "",
   "main": "index.js",
   "dependencies": {
@@ -39,7 +39,7 @@
   "author": "nanopang",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/nanopang/nestjs-query-module-codegen/issues"
+    "url": "https://github.com/nanopang/nqmo/issues"
   },
-  "homepage": "https://github.com/nanopang/nestjs-query-module-codegen#readme"
+  "homepage": "https://github.com/nanopang/nqmo#readme"
 }
