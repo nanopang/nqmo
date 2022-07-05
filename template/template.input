@@ -1,14 +1,8 @@
-import { defaultQueryOptions } from '@constants/gql.constant';
-import { TemplateEntity } from '@entities';
-import { InputType, ObjectType, PartialType } from '@nestjs/graphql';
-import { QueryOptions } from '@nestjs-query/query-graphql';
-@ObjectType('Template')
-@QueryOptions({ ...defaultQueryOptions })
-export class TemplateDto extends TemplateEntity {}
+import { InputType, PartialType } from '@nestjs/graphql';
 
 @InputType()
-export class CreateTemplateInputDTO {
+export class CreateTemplateInput {
 }
 
 @InputType()
-export class UpdateTemplateInputDTO extends PartialType(CreateTemplateInputDTO) {}
+export class UpdateTemplateInput extends PartialType(CreateTemplateInput) {}

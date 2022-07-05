@@ -4,7 +4,8 @@ import { NestjsQueryGraphQLModule } from '@nestjs-query/query-graphql';
 import { NestjsQueryTypeOrmModule } from '@nestjs-query/query-typeorm';
 
 import { TemplateService } from './template.service';
-import { TemplateDto, CreateTemplateInputDTO, UpdateTemplateInputDTO } from './dto';
+import { CreateAdminInput, UpdateAdminInput } from './admin.input';
+import { AdminDTO } from './admin.dto';
 
 @Module({
   imports: [
@@ -14,10 +15,10 @@ import { TemplateDto, CreateTemplateInputDTO, UpdateTemplateInputDTO } from './d
       resolvers: [
         {
           ServiceClass: TemplateService,
-          DTOClass: TemplateDto,
+          DTOClass: TemplateDTO,
           EntityClass: TemplateEntity,
-          CreateDTOClass: CreateTemplateInputDTO,
-          UpdateDTOClass: UpdateTemplateInputDTO,
+          CreateDTOClass: CreateTemplateInput,
+          UpdateDTOClass: UpdateTemplateInput,
           guards: [],
         },
       ],

@@ -15,12 +15,6 @@ const codegen = () => {
     if (!fs.existsSync(modulePath)) {
       fs.mkdirSync(modulePath, { recursive: true });
     }
-    if (!fs.existsSync(modulePath + "/entity")) {
-      fs.mkdirSync(modulePath + "/entity");
-    }
-    if (!fs.existsSync(modulePath + "/dto")) {
-      fs.mkdirSync(modulePath + "/dto");
-    }
 
     //Module
     fs.readFile(
@@ -55,13 +49,13 @@ const codegen = () => {
 
     //DTO
     fs.readFile(
-      templatePath + "/template.gql.dto",
+      templatePath + "/template.input",
       "utf-8",
       function (err, data) {
         if (err) throw err;
         data = data.replace(/Template/g, pascalCase(fileName));
         fs.writeFileSync(
-          `${modulePath}/dto/${paramCase(fileName)}.gql.dto.ts`,
+          `${modulePath}/${paramCase(fileName)}.input.ts`,
           data,
           "utf-8"
         );
@@ -77,23 +71,25 @@ const codegen = () => {
         data = data.replace(/Template/g, pascalCase(fileName));
         data = data.replace(/templates/g, pluralize(camelCase(fileName)));
         fs.writeFileSync(
-          `${modulePath}/entity/${paramCase(fileName)}.entity.ts`,
+          `${modulePath}/${paramCase(fileName)}.entity.ts`,
           data,
           "utf-8"
         );
       }
     );
 
-    //DTO Index
-    fs.readFile(
-      templatePath + "/template.dto.index",
-      "utf-8",
-      function (err, data) {
-        if (err) throw err;
-        data = data.replace(/template/g, paramCase(fileName));
-        fs.writeFileSync(`${modulePath}/dto/index.ts`, data, "utf-8");
-      }
-    );
+    //DTO
+    //Entity
+    fs.readFile(templatePath + "/template.dto", "utf-8", function (err, data) {
+      if (err) throw err;
+      data = data.replace(/Template/g, pascalCase(fileName));
+      data = data.replace(/templates/g, pluralize(camelCase(fileName)));
+      fs.writeFileSync(
+        `${modulePath}/${paramCase(fileName)}.dto.ts`,
+        data,
+        "utf-8"
+      );
+    });
   });
 };
 codegen();

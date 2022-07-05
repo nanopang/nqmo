@@ -1,10 +1,7 @@
 import { AppBaseEntity } from '@entities';
 import { ObjectType } from '@nestjs/graphql';
-import { FilterableField } from '@nestjs-query/query-graphql';
 import { Column, Entity } from 'typeorm';
 
-@ObjectType('Template')
+@ObjectType()
 @Entity('templates')
-export class TemplateEntity extends AppBaseEntity {
-  
-}
+export class TemplateEntity extends AppBaseEntity {}
